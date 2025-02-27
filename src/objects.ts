@@ -1,4 +1,3 @@
-import { queries } from "@testing-library/dom";
 import { Question, QuestionType } from "./interfaces/question";
 
 /**
@@ -45,11 +44,8 @@ export function isCorrect(question: Question, answer: string): boolean {
 export function isValid(question: Question, answer: string): boolean {
     if (question.type === "short_answer_question") {
         return true;
-    } else if (question.type === "multiple_choice_question") {
-        return question.options.includes(answer);
-    } else {
-        return false;
     }
+    return question.options.includes(answer);
 }
 
 /**
